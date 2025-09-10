@@ -1,0 +1,11 @@
+---
+const { name, className = "" } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 24 24"
+  class={className}
+  aria-hidden="true"
+>
+  <use href={`/sprite.svg#${name}`} />
+</svg>
