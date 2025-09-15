@@ -1,0 +1,41 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "July 2024 – January 2025",
+    title: "Software Engineer at Adviters",
+    website:"https://adviters.com/",
+    description:
+      "Worked as a frontend developer, creating and modifying components and interfaces using React, TypeScript, and Material-UI. Implemented libraries such as TanStack Query and React-Final-Form to efficiently manage requests and form states.",
+  },
+  {
+    date: "July 2023 – March 2024",
+    title: "Tech Support at GG Group",
+    website:"https://gg-group.com.ar/",
+    description:
+      "Provided technical support to nearly 100 operators in the call center. Assisted with troubleshooting and maintenance of software and hardware systems, ensuring minimal downtime and smooth operations.",
+  },
+  {
+    date: "2022",
+    title: "IT Education Program – J.P. Morgan & Fundación Pescar",
+    website:"https://www.pescar.org.ar/",
+    description:
+      "Completed a training program focused on technical and professional development. \n" +
+      "- Technical Skills (172h): HTML, CSS, JavaScript, Git, OOP, GitHub, MongoDB. \n" +
+      "- Soft Skills (128h): Teamwork, Communication, Digital Tools, Self-Management, Time Management, Study Methodologies.",
+  },
+];
+
+---
+<ol class="relative border-s border-gray-200 dark:border-gray-700">  
+    {
+        EXPERIENCE.map(experience => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience} />
+            </li>
+        ))}
+    
+
+</ol>
+

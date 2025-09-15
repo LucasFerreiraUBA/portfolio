@@ -1,6 +1,8 @@
 ---
 import "@fontsource-variable/onest"
 import Header from "../components/Header.astro";
+const description = Astro.props.description || "Welcome to my portfolio! I'm Lucas Ferreira, a passionate software developer with over 2 years of experience in web development. Explore my projects and get in touch!";
+const title = Astro.props.title || "Portfolio - Lucas Ferreira - Software Developer with 2+ years experience";
 ---
 
 <!doctype html>
@@ -10,18 +12,24 @@ import Header from "../components/Header.astro";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Home</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
 	</head>
-	<body>
-		<Header />
-		<slot />
-	</body>
+<body class="relative min-h-screen">
+  <div 
+    class="fixed inset-0 -z-10 w-full h-full  bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
+  </div>
+
+  <Header />
+  <slot />
+</body>
 </html>
 
 <style>
 	html{
 		font-family: "Onest Variable",system-ui, sans-serif;
 		background-color: #050505;
+		scroll-behavior: smooth;
 	}
 	body {
 		display: flex;
@@ -29,5 +37,11 @@ import Header from "../components/Header.astro";
 		min-height: 100vh;
 		align-items: center;
 		flex-direction: column;
+	}
+
+	@media (prefers-reduce-motion: reduce) {
+		body {
+			scroll-behavior: auto;
+		}
 	}
 </style>
