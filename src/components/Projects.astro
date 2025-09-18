@@ -1,0 +1,25 @@
+---
+const PROJECTS = [
+{    title: "Project One",
+    description: "A web application that helps users track their fitness goals and progress.",
+    link:"https://github.com/lucasFerreiraUBA/Project-One",
+    github:"https://github.com/lucasFerreiraUBA/Project-One",
+    image:"/project-one.png",
+    tags:["React", "Node.js", "MongoDB"]
+}
+]
+---
+
+{
+PROJECTS.map((project) => (
+    <article>
+        <h3 class="text-xl font-semibold">{project.title}</h3>
+        <p class="text-lg leading-7 opacity-80">{project.description}</p>
+        <ul class="flex flex-row gap-2 flex-wrap text-lg leading-7 opacity-80">
+            {project.tags.map((tag) => (
+                <li class="bg-white/10 rounded-full px-3 py-1 text-sm">{tag}</li>
+            ))}
+        </ul>
+        <img src={project.image} alt={project.title} class="my-4 rounded-lg"/>
+    </article>
+        ))}
