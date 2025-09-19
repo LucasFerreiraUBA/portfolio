@@ -1,25 +1,78 @@
 ---
+import Tailwind from "../components/icons/Tailwind.astro";
+import React from "../components/icons/React.astro";
+import JavaScript from "../components/icons/JavaScript.astro";
+import CSS from "../components/icons/Css.astro";
+import AstroIcon from "../components/icons/Astro.astro";
+import Html from "../components/icons/Html.astro";
+
+
+const TAGS =  {
+    REACT:{
+        name:"React",
+        class:"bg-blue-500/20 text-blue-400",
+        icon: React
+    },
+    JAVASCRIPT:{
+        name:"JavaScript",
+        class:"bg-yellow-500/20 text-yellow-400",
+        icon: JavaScript
+    },
+    CSS:{
+        name:"CSS",
+        class:"bg-purple-500/20 text-purple-400",
+        icon: CSS
+    },
+    TAILWIND:{
+        name:"Tailwind",
+        class:"bg-sky-500/20 text-sky-400",
+        icon: Tailwind
+    },
+    ASTRO:{
+        name:"Astro",
+        class:"bg-orange-500/20 text-orange-400",
+        icon: AstroIcon
+    },
+    HTML:{
+        name:"HTML",
+        class:"bg-red-500/20 text-red-400",
+        icon: Html
+    }
+}
+
 const PROJECTS = [
-{    title: "Project One",
-    description: "A web application that helps users track their fitness goals and progress.",
+{    title: "Movie search app",
+    description: "A web application that helps users find their favorite movies.",
     link:"https://github.com/lucasFerreiraUBA/Project-One",
     github:"https://github.com/lucasFerreiraUBA/Project-One",
-    image:"/project-one.png",
-    tags:["React", "Node.js", "MongoDB"]
+    image:"/movie-searcher-app.webp",
+    tags:[TAGS.REACT, TAGS.JAVASCRIPT, TAGS.CSS]
+},
+{
+    title: "Astro Blog",
+    description: "A personal blog built with Astro to share my thoughts and projects.",
+    link:"https://lferreira-astro.netlify.app/",
+    github:"https://github.com/LucasFerreiraUBA/Astro-Tutorial",
+    image:"/astro-blog.webp",
+    tags:[TAGS.ASTRO, TAGS.CSS, TAGS.JAVASCRIPT]
 }
 ]
 ---
-
 {
 PROJECTS.map((project) => (
     <article>
-        <h3 class="text-xl font-semibold">{project.title}</h3>
-        <p class="text-lg leading-7 opacity-80">{project.description}</p>
-        <ul class="flex flex-row gap-2 flex-wrap text-lg leading-7 opacity-80">
+        <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{project.title}</h3>
+        <p class="text-lg opacity-80 mb-4 text-pretty">{project.description}</p>
+        <ul class="flex flex-row gap-4 mb-4">
             {project.tags.map((tag) => (
-                <li class="bg-white/10 rounded-full px-3 py-1 text-sm">{tag}</li>
+                <li>
+                    <span class={tag.class + " px-3 py-1 rounded-full text-sm font-medium flex items-center gap-x-2"}>
+                    <tag.icon class="size-6"></tag.icon>
+                    {tag.name}
+                    </span>
+                    </li>
             ))}
         </ul>
-        <img src={project.image} alt={project.title} class="my-4 rounded-lg"/>
+        <img src={project.image} alt={project.title} class="rounded shadow-2xl shadow-white/10"/>
     </article>
         ))}

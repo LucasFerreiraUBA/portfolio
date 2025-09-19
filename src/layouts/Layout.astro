@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/onest"
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 const description = Astro.props.description || "Welcome to my portfolio! I'm Lucas Ferreira, a passionate software developer with over 2 years of experience in web development. Explore my projects and get in touch!";
 const title = Astro.props.title || "Portfolio - Lucas Ferreira - Software Developer with 2+ years experience";
 ---
@@ -22,6 +23,7 @@ const title = Astro.props.title || "Portfolio - Lucas Ferreira - Software Develo
 
   <Header />
   <slot />
+  <Footer />
 </body>
 </html>
 
